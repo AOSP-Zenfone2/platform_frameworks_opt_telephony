@@ -2824,7 +2824,7 @@ public abstract class PhoneBase extends Handler implements Phone {
         return false;
     }
 
-<<<<<<< HEAD
+
     @Override
     public void getCallForwardingOption(int commandInterfaceCFReason,
             int commandInterfaceServiceClass, Message onComplete) {
@@ -2836,7 +2836,7 @@ public abstract class PhoneBase extends Handler implements Phone {
             int commandInterfaceCFAction, String dialingNumber,
             int commandInterfaceServiceClass, int timerSeconds, Message onComplete) {
         logUnexpectedCdmaMethodCall("setCallForwardingOption with Serviceclass");
-=======
+
     public void sendEmergencyCallStateChange(boolean callActive) {
         if (mBroadcastEmergencyCallStateChanges) {
             Intent intent = new Intent(TelephonyIntents.ACTION_EMERGENCY_CALL_STATE_CHANGED);
@@ -2850,7 +2850,7 @@ public abstract class PhoneBase extends Handler implements Phone {
     @Override
     public void setBroadcastEmergencyCallStateChanges(boolean broadcast) {
         mBroadcastEmergencyCallStateChanges = broadcast;
->>>>>>> 52f099b2d91dfed98f99f0fabb0a8b343c53b0b4
+
     }
 
     public void dump(FileDescriptor fd, PrintWriter pw, String[] args) {

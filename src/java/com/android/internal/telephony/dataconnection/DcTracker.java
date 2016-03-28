@@ -2417,12 +2417,11 @@ public class DcTracker extends DcTrackerBase {
      * Based on the operator numeric, create a list for all possible
      * Data Connections and setup the preferredApn.
      */
-<<<<<<< HEAD
+
     protected void createAllApnList() {
-=======
+
     private void createAllApnList() {
         mMvnoMatched = false;
->>>>>>> 52f099b2d91dfed98f99f0fabb0a8b343c53b0b4
         mAllApnSettings = new ArrayList<ApnSetting>();
         String operator = getOperatorNumeric();
         if (operator != null && !operator.isEmpty()) {

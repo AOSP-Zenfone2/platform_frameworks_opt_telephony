@@ -31,13 +31,11 @@ import java.lang.NullPointerException;
 
 public class PhoneSubInfoController extends IPhoneSubInfo.Stub {
     private static final String TAG = "PhoneSubInfoController";
-<<<<<<< HEAD
     private Phone[] mPhone;
     private static final int PHONE_ID_1 = 0;
 
     public PhoneSubInfoController(Phone[] phone) {
         mPhone = phone;
-=======
     private final Phone[] mPhone;
     private final Context mContext;
     private final AppOpsManager mAppOps;
@@ -55,18 +53,17 @@ public class PhoneSubInfoController extends IPhoneSubInfo.Stub {
         }
         mContext = context;
         mAppOps = appOpsManager;
->>>>>>> 52f099b2d91dfed98f99f0fabb0a8b343c53b0b4
         if (ServiceManager.getService("iphonesubinfo") == null) {
             ServiceManager.addService("iphonesubinfo", this);
         }
     }
 
-<<<<<<< HEAD
+
     // The device id should be constant for non-msim applications
     // so always return device id from first phone.
     public String getDeviceId(String callingPackage) {
         return getDeviceIdForPhone(PHONE_ID_1);
-=======
+
     // try-state
     // either have permission (true), don't (exception), or explicitly turned off (false)
     private boolean canReadPhoneState(String callingPackage, String message) {
@@ -95,7 +92,7 @@ public class PhoneSubInfoController extends IPhoneSubInfo.Stub {
     public String getDeviceId(String callingPackage) {
         return getDeviceIdForPhone(SubscriptionManager.getPhoneId(getDefaultSubscription()),
                 callingPackage);
->>>>>>> 52f099b2d91dfed98f99f0fabb0a8b343c53b0b4
+
     }
 
     public String getDeviceIdForPhone(int phoneId, String callingPackage) {

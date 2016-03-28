@@ -2132,7 +2132,6 @@ public interface Phone {
      */
     public void getModemActivityInfo(Message response);
 
-<<<<<<< HEAD
     /** Request to update the current local call hold state.
      * @param lchStatus, true if call is in lch state
      */
@@ -2180,10 +2179,9 @@ public interface Phone {
                                  int commandInterfaceServiceClass,
                                  int timerSeconds,
                                  Message onComplete);
-=======
+
     /**
      * Set boolean broadcastEmergencyCallStateChanges
      */
     public void setBroadcastEmergencyCallStateChanges(boolean broadcast);
->>>>>>> 52f099b2d91dfed98f99f0fabb0a8b343c53b0b4
 }
