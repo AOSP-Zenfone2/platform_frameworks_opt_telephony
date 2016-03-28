@@ -197,6 +197,21 @@ public class PhoneProxy extends Handler implements Phone {
             }
             // Force update IMS service
             ImsManager.updateImsServiceConfig(mContext, mPhoneId, true);
+
+            // Update broadcastEmergencyCallStateChanges
+            CarrierConfigManager configMgr = (CarrierConfigManager)
+                    mActivePhone.getContext().getSystemService(Context.CARRIER_CONFIG_SERVICE);
+            PersistableBundle b = configMgr.getConfigForSubId(mActivePhone.getSubId());
+            if (b != null) {
+                boolean broadcastEmergencyCallStateChanges = b.getBoolean(
+                        CarrierConfigManager.KEY_BROADCAST_EMERGENCY_CALL_STATE_CHANGES_BOOL);
+                logd("broadcastEmergencyCallStateChanges =" + broadcastEmergencyCallStateChanges);
+                mActivePhone.setBroadcastEmergencyCallStateChanges(
+                        broadcastEmergencyCallStateChanges);
+            } else {
+                loge("didn't get broadcastEmergencyCallStateChanges from carrier config");
+            }
+
             break;
 
         default:
@@ -1673,6 +1688,7 @@ public class PhoneProxy extends Handler implements Phone {
     }
 
     @Override
+<<<<<<< HEAD
     public void getCallForwardingOption(int commandInterfaceCFReason,
             int commandInterfaceServiceClass, Message onComplete) {
         mActivePhone.getCallForwardingOption(commandInterfaceCFReason,
@@ -1686,6 +1702,10 @@ public class PhoneProxy extends Handler implements Phone {
         mActivePhone.setCallForwardingOption(commandInterfaceCFReason,
                 commandInterfaceCFAction, dialingNumber,
                 commandInterfaceServiceClass, timerSeconds, onComplete);
+=======
+    public void setBroadcastEmergencyCallStateChanges(boolean broadcast) {
+        mActivePhone.setBroadcastEmergencyCallStateChanges(broadcast);
+>>>>>>> 52f099b2d91dfed98f99f0fabb0a8b343c53b0b4
     }
 
     public void dump(FileDescriptor fd, PrintWriter pw, String[] args) {
